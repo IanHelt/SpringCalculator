@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Spring Calculator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<p>today's a good day to </p>
+<h1>calculate</h1>
+
+
+<form action="/" method="post">
+    <input type="text" name="firstInput" placeholder="Number"/>
+    <select name="operand" id="">
+        <option name="add" value="+">+</option>
+        <option name="multiply" value="*">*</option>
+        <option name="subtract" value="-">-</option>
+        <option name="divide" value="/">/</option>
+    </select>
+    <input type="text" name="secondInput" placeholder="Number"/>
+    <input type="submit" value="Calculate"/>
+</form>
+
+<p>
+  Your equation was <span th:text="${showEquation}" ></span>
+</p>
+<p>
+    The outcome is <span th:text="${outcome}"></span>
+</p>
+<script>src="/assets/js/app.js"</script>
+</body>
+</html>
