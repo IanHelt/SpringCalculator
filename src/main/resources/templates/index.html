@@ -6,11 +6,11 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
 <body>
-
+<div class="container" style="margin: auto; text-align: center;">
 <p>today's a good day to </p>
 <h1>calculate</h1>
-
-
+<br />
+<h3>Quick Calc</h3>
 <form action="/" method="post">
     <input type="text" name="firstInput" placeholder="Number"/>
     <select name="operand" id="">
@@ -22,13 +22,39 @@
     <input type="text" name="secondInput" placeholder="Number"/>
     <input type="submit" value="Calculate"/>
 </form>
-
+<br />
+<h3>Save an Equation</h3>
+<form action="/save" method="post">
+    <input type="text" name="username" placeholder="Username"/>
+    <input type="text" name="opname" placeholder="Operation Name"/>
+    <br />
+    <input type="text" name="firstInputSave" placeholder="Number"/>
+    <select name="operandSave" id="">
+        <option name="add" value="+">+</option>
+        <option name="multiply" value="*">*</option>
+        <option name="subtract" value="-">-</option>
+        <option name="divide" value="/">/</option>
+    </select>
+    <input type="text" name="secondInputSave" placeholder="Number"/>
+    <input type="submit" value="Calculate and Save"/>
+</form>
+<br />
+<h3>View Saved Equations</h3>
+<span>Select User</span>
+<form th:action="@{'/toDetails'}" method="post">
+<select name="toUser"  id="">
+    <option th:each="calcuser : ${calcusers}" th:value="*{calcuser.name}" th:text="*{calcuser.name}"></option>
+</select>
+    <input type="submit" value="Select"/>
+</form>
+<br />
 <p>
   Your equation was <span th:text="${showEquation}" ></span>
 </p>
 <p>
     The outcome is <span th:text="${outcome}"></span>
 </p>
+</div>
 <script>src="/assets/js/app.js"</script>
 </body>
 </html>

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>User Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<h1 th:text="${calcUser.name} + '`s Operations'"></h1>
+<br />
+<ul th:each="equation : ${calcUser.operations}">
+    <li th:text="${equation.name}"></li>
+    <li th:text="${equation.equation}"></li>
+</ul>
+<form action="/" method="get">
+    <input type="submit" value="Back to Calculator"/>
+</form>
+</body>
+</html>
